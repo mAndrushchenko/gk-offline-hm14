@@ -1,0 +1,90 @@
+.form-field {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.form-field {
+  margin: 10px auto 5px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+}
+
+.form-field-email {
+  margin: 15px auto 5px auto;
+}
+
+.log-err {
+  border: red 1px solid !important;
+
+  &:focus {
+    border: #121027 1px solid !important;
+  }
+}
+
+.reg-wrapper {
+  text-align: center;
+}
+
+.reg-body {
+  width: 400px;
+  height: auto !important;
+  margin: auto;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+
+.reg-form {
+  display: grid;
+  margin: auto;
+}
+
+.reg-field {
+  width: 300px;
+  margin: 10px auto 5px auto;
+}
+
+.reg-first-name {
+  margin-bottom: 5px;
+}
+
+.reg-last-name {
+  margin-top: 5px;
+}
+
+.reg-btn {
+  margin: 10px;
+  width: 300px;
+}
+
+.err-message {
+  color: snow;
+  width: 300px;
+  height: 70px;
+  border-radius: 10px;
+  background-color: rgba(150, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(150, 0, 0, 0.2);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+  & p {
+    margin: 0;
+    padding: 5px;
+  }
+}
+
+.err-phone {
+  height: 30px;
+}
+
+.err-name {
+  height: 50px;
+}
+
+.btn-eye {
+  background-color: rgba(0, 0, 0, 0);
+}

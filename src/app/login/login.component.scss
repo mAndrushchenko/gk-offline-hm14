@@ -1,0 +1,71 @@
+.form-field {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.log-err {
+  border: red 1px solid !important;
+
+  &:focus {
+    border: #121027 1px solid !important;
+  }
+}
+
+.log-wrapper {
+  text-align: center;
+}
+
+.log-body {
+  width: 400px;
+  height: auto !important;
+  margin: auto;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.log-fields {
+  margin: auto;
+}
+
+.log-field {
+  width: 300px;
+  margin: 10px auto 5px auto;
+}
+
+.log-btn {
+  margin: 10px;
+  width: 300px;
+}
+
+.err-message {
+  color: snow;
+  width: 300px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgba(150, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(150, 0, 0, 0.2);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+
+  & p {
+    margin: 0;
+    padding: 5px;
+  }
+}
+
+.btn-eye {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.err-message-password {
+  height: 50px;
+}
+
+.logged {
+  border: #1f8838 2px solid;
+  text-align: center;
+}

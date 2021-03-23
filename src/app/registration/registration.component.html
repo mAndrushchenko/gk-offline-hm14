@@ -1,0 +1,110 @@
+<div class="reg-wrapper">
+  <h1>Registration</h1>
+  <nb-card size="large" class="reg-body">
+    <form *ngIf="!isSubmit || !regForm!.valid" [formGroup]="regForm" (ngSubmit)="onSubmit()" class="reg-form">
+      <div class="reg-field form-field-email">
+        <nb-form-field>
+          <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+          <input
+            class="{{email!.invalid && email!.touched ? 'log-err' : ''}}"
+            type="text"
+            nbInput
+            placeholder="email"
+            formControlName="email"
+            value="{{ this.regData.email }}"
+          >
+        </nb-form-field>
+        <div
+          *ngIf="email!.invalid && email!.touched"
+          class="err-message"
+        >
+          <p>You can use only english letters in lowercase. Also, it can contain numbers and one dot before @.</p>
+        </div>
+      </div>
+      <div class="reg-field">
+        <nb-form-field>
+          <input
+            class="{{password!.invalid && password!.touched ? 'log-err' : ''}}"
+            [type]="getInputType()"
+            nbInput
+            placeholder="password"
+            formControlName="password"
+            value="{{ this.regData.password }}"
+          >
+          <div
+            class="btn-eye"
+            nbSuffix
+            nbButton
+          >
+            <nb-icon
+              (click)="toggleShowPassword()"
+              [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+              pack="eva"
+              [attr.aria-label]="showPassword ? 'show password' : 'hide password'">
+            </nb-icon>
+          </div>
+        </nb-form-field>
+        <div
+          *ngIf="password!.invalid && password!.touched"
+          class="err-message"
+        >
+          <p>Password must have letters in lowercase and uppercase, conteins numbers and also must be larger or equal
+            eight symbols.</p>
+        </div>
+      </div>
+      <nb-form-field class="reg-field reg-first-name">
+        <input
+          class="{{firstName!.invalid && firstName!.touched ? 'log-err' : ''}}"
+          status="basic"
+          type="text"
+          nbInput
+          placeholder="First name"
+          formControlName="firstName"
+          value="{{ this.regData.firstName }}"
+        >
+      </nb-form-field>
+      <nb-form-field class="reg-field  reg-last-name">
+        <input
+          class="{{lastName!.invalid && lastName!.touched ? 'log-err' : ''}}"
+          status="basic"
+          type="text"
+          nbInput
+          placeholder="Last name"
+          formControlName="lastName"
+          value="{{ this.regData.lastName }}"
+        >
+        <div *ngIf="firstName!.invalid && firstName!.touched || lastName!.invalid && lastName!.touched"
+             class="err-message err-name"
+        >
+          <p>First and last name must contain only english letters or cyrillic.</p>
+        </div>
+      </nb-form-field>
+      <nb-form-field class="reg-field">
+        <input
+          class="{{phoneNumber!.invalid && phoneNumber!.touched ? 'log-err' : ''}}"
+          status="basic"
+          type="text"
+          nbInput
+          placeholder="Phone number"
+          formControlName="phoneNumber"
+          value="{{ this.regData.phoneNumber }}"
+        >
+        <div *ngIf="phoneNumber!.invalid && phoneNumber!.touched" class="err-message err-phone">
+          <p>Phone number must start from "+380..."</p>
+        </div>
+      </nb-form-field>
+      <button
+        class="reg-btn"
+        nbButton
+        status="primary"
+        type="submit"
+        [disabled]="!regForm.valid"
+      >
+        Login
+      </button>
+    </form>
+    <div *ngIf="isSubmit && regForm!.valid" class="logged">
+      <h3>&#9989; You have been successfully registered!</h3>
+    </div>
+  </nb-card>
+</div>

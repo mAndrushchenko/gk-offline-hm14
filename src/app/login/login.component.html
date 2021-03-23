@@ -1,0 +1,69 @@
+<div class="log-wrapper">
+  <h1>Login</h1>
+  <nb-card size="small" class="log-body">
+    <nb-card-body class="log-fields">
+      <form
+        #form="ngForm" *ngIf="!isSubmit || !logForm!.valid"
+        [formGroup]="logForm"
+        (ngSubmit)="onSubmit(form)"
+      >
+        <div class="form-field">
+          <nb-form-field class="log-field">
+            <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+            <input
+              class="{{email!.invalid && email!.touched ? 'log-err' : ''}}"
+              type="text"
+              nbInput
+              placeholder="email"
+              formControlName="email"
+              value="{{ this.logData.email }}"
+            >
+          </nb-form-field>
+          <div *ngIf="email!.invalid && email!.touched" class="err-message">
+            <p>Email is wrong</p>
+          </div>
+        </div>
+        <div class="form-field">
+          <nb-form-field class="log-field">
+            <input
+              class="{{password!.invalid && password!.touched ? 'log-err' : ''}}"
+              [type]="getInputType()"
+              nbInput
+              placeholder="password"
+              formControlName="password"
+              value="{{ this.logData.password }}"
+            >
+            <div
+              class="btn-eye"
+              nbSuffix
+              nbButton
+            >
+              <nb-icon
+                (click)="toggleShowPassword()"
+                [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                pack="eva"
+                [attr.aria-label]="showPassword ? 'show password' : 'hide password'">
+              </nb-icon>
+            </div>
+          </nb-form-field>
+          <div *ngIf="password!.invalid && password!.touched" class="err-message err-message-password">
+            <p>Password is too short... It must be minimum eight symbols.</p>
+          </div>
+        </div>
+        <button
+          class="log-btn"
+          nbButton
+          status="primary"
+          type="submit"
+          [disabled]="!logForm.valid"
+          (submit)="onSubmit(form)"
+        >
+          Login
+        </button>
+      </form>
+      <div *ngIf="isSubmit && logForm!.valid" class="logged">
+        <h3>&#9989; You have been successfully logged in!</h3>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>
