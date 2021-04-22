@@ -1,4 +1,4 @@
-<nb-layout>
+<nb-layout >
 
   <nb-layout-header fixed >
     <div class="links">
@@ -6,28 +6,31 @@
         class="link {{location === 'home' ? 'active' : ''}}"
         (click)="currentLink('home')"
         [routerLink]="['home']"
-        routerLinkActive="active"
-      >
-        Home
-      </a>
+        routerLinkActive="active">Home</a>
       <a
         class="link {{location === 'articles' ? 'active' : ''}}"
         (click)="currentLink('articles')"
-        [routerLink]="['articles']"
-      >
-        Articles
-      </a>
+        [routerLink]="['articles']">Articles</a>
+      <a
+        class="link {{location === 'nasa' ? 'active' : ''}}"
+        (click)="currentLink('nasa')"
+        [routerLink]="['nasa']">NASA</a>
+      <a
+        class="link {{location === 'star-wars' ? 'active' : ''}}"
+        (click)="currentLink('star-wars')"
+        [routerLink]="['star-wars']">Star Wars</a>
+      <a
+        class="link {{location === 'users' ? 'active' : ''}}"
+        (click)="currentLink('users')"
+        [routerLink]="['users']">Users</a>
       <a
         class="link {{location === 'login' ? 'active' : ''}}"
         (click)="currentLink('login')"
-        [routerLink]="['login']"
-      >
-        Login
-      </a>
+      [routerLink]="['login']">Login</a>
       <a
         class="link {{location === 'registration' ? 'active' : ''}}"
         (click)="currentLink('registration')"
-        [routerLink]="['registration']">Registration</a>
+      [routerLink]="['registration']">Registration</a>
     </div>
   </nb-layout-header>
 

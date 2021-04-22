@@ -1,0 +1,32 @@
+<div class="nasa_header">
+  <nb-card class="nasa_search_card">
+    <nb-card-header>
+      <form class="nasa_search_group" (submit)="onSearch($event, search.value)">
+        <input #search type="text" nbInput fullWidth status="info" class="nasa_search"
+               placeholder="Write something like Orion, Mars...">
+        <button class="btn-search" nbButton status="info">Search images</button>
+      </form>
+    </nb-card-header>
+  </nb-card>
+  <cdk-virtual-scroll-viewport *ngIf="dataExist && !loading" class="scroll_container" itemSize="300" >
+        <nb-card class="nasa_item animate__animated animate__fadeInRight" *cdkVirtualFor="let item of items">
+        <a href="{{ item.href }}" style="grid-area: img" target="_blank">
+          <img src="{{ item.image }}" alt="" class="nasa_item_image animate__animated animate__zoomIn"></a>
+        <nb-card-body class="nasa_card_description" style="grid-area: des">
+          {{ item.description }}
+        </nb-card-body>
+        <nb-card-footer style="grid-area: date">{{ item.date | date:  "dd MMM, YYYY" }}</nb-card-footer>
+      </nb-card>
+  </cdk-virtual-scroll-viewport>
+      <nb-card class="spinner" *ngIf="loading" [nbSpinner]="true" nbSpinnerSize="giant" nbSpinnerStatus="primary">
+        <nb-card-body>
+        </nb-card-body>
+      </nb-card>
+      <nb-card *ngIf="!loading && !dataExist && firstRequest" class="error_message">
+        <nb-card-body>
+          <h5>Nothing found 🙁</h5>
+        </nb-card-body>
+      </nb-card>
+</div>
+
+

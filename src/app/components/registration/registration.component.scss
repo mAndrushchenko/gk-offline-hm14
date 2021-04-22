@@ -5,7 +5,7 @@
 }
 
 .form-field {
-  margin: 10px auto 5px auto;
+  margin: 10px auto 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,11 +14,11 @@
 }
 
 .form-field-email {
-  margin: 15px auto 5px auto;
+  margin: 15px auto 5px;
 }
 
 .log-err {
-  border: red 1px solid !important;
+  border: #f00 1px solid !important;
 
   &:focus {
     border: #121027 1px solid !important;
@@ -44,7 +44,7 @@
 
 .reg-field {
   width: 300px;
-  margin: 10px auto 5px auto;
+  margin: 10px auto 5px;
 }
 
 .reg-first-name {
@@ -61,12 +61,12 @@
 }
 
 .err-message {
-  color: snow;
+  color: #fffafa;
   width: 300px;
   height: 70px;
   border-radius: 10px;
-  background-color: rgba(150, 0, 0, 0.2);
-  box-shadow: 0 0 5px rgba(150, 0, 0, 0.2);
+  background-color: rgba(150, 0, 0, .2);
+  box-shadow: 0 0 5px rgba(150, 0, 0, .2);
   text-align: center;
   margin: 0;
   padding: 0;

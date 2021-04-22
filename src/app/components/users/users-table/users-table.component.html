@@ -1,0 +1,32 @@
+<table *ngIf="users.length" class="users__table__content animate__animated animate__fadeIn">
+  <thead>
+  <tr>
+    <th>Picture</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Date of birthday</th>
+    <th>Email</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="animate__animated animate__fadeIn"
+      *ngFor="let user of users | paginate: { itemsPerPage: itemsOnPage, currentPage: page }">
+    <td><img src="{{ user.picture }}" alt=""></td>
+    <td>{{ user.name }}</td>
+    <td>{{ user.gender }}</td>
+    <td>{{ user.dob | date: 'dd.MM.YYYY' }}</td>
+    <td>{{ user.email }}</td>
+  </tr>
+  </tbody>
+</table>
+<div class="pagination__wrapper animate__animated animate__fadeInDown" *ngIf="users && users.length">
+  <div class="pagination">
+    <a (click)="onPrev()">&laquo;</a>
+    <a *ngIf="page > 1" (click)="onSelect(1)">1</a>
+    <a *ngIf="page > 2 " class="pagination__navigation__dots">...</a>
+    <a class="active">{{ page }}</a>
+    <a *ngIf="page < totalPages - 1" class="pagination__navigation__dots">...</a>
+    <a *ngIf="page < totalPages" (click)="onSelect(totalPages)">{{totalPages}}</a>
+    <a (click)="onNext()">&raquo;</a>
+  </div>
+</div>

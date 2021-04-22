@@ -1,0 +1,80 @@
+<div class="sw__table__wrapper animate__animated animate__fadeInDownBig" >
+  <nb-card>
+    <nb-card-body class="sw__table">
+      <h1>Star ships</h1>
+      <table>
+        <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>Name</th>
+          <th>Cost, M$</th>
+          <th>Max speed</th>
+          <th>Crew</th>
+          <th>Passengers</th>
+          <th>Length, m</th>
+          <th>Cargo capacity, t</th>
+          <th>Consumables</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let ship of starShipList; let ind = index" class="animate__animated animate__fadeInLeft">
+          <th>{{ ind + 1 }}</th>
+          <td>{{ ship.name }}</td>
+          <td>{{ ship.cost_in_credits}}</td>
+          <td>{{ ship.max_atmosphering_speed}}</td>
+          <td>{{ ship.crew }}</td>
+          <td>{{ ship.passengers }}</td>
+          <td>{{ ship.length }}</td>
+          <td>{{ ship.cargo_capacity }}</td>
+          <td>{{ ship.consumables[0] }}</td>
+        </tr>
+        <tr>
+          <th colspan="2">Sort</th>
+          <td>
+            <nb-toggle
+              #filter
+              class="sw__table__options"
+              status="primary"
+              (checkedChange)="toggleFilter(filter.checked)">
+            </nb-toggle>
+          </td>
+          <td colspan="4">
+            <nb-select
+              class="sw__table__options"
+              #sortValue
+              id="sort_filter_value"
+              disabled="{{!filterAction}}"
+              placeholder="Select sort value"
+              (selectedChange)="onSelectValue(sortValue.selected)"
+              [(selected)]="filterValue"
+            >
+              <nb-option value="name">Name</nb-option>
+              <nb-option value="cost_in_credits">Cost</nb-option>
+              <nb-option value="max_atmosphering_speed">Speed</nb-option>
+              <nb-option value="crew">Crew</nb-option>
+              <nb-option value="passengers">Passengers</nb-option>
+              <nb-option value="length">Length</nb-option>
+              <nb-option value="cargo_capacity">Cargo capacity</nb-option>
+              <nb-option value="consumables">Consumables</nb-option>
+            </nb-select>
+          </td>
+          <td colspan="3">
+            <nb-select
+              #sortParam
+              class="sw__table__options"
+              id="sort_filter_parameter"
+              disabled="{{!filterAction}}"
+              placeholder="Select parameter"
+              (selectedChange)="onSelectFilter(sortParam.selected)"
+              [(selected)]="filterParam"
+            >
+              <nb-option value="from_top">From top to bottom</nb-option>
+              <nb-option value="from_bottom">From bottom to top</nb-option>
+            </nb-select>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </nb-card-body>
+  </nb-card>
+</div>

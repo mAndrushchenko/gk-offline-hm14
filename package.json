@@ -7,6 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "lint-css": "stylelint --config .stylelintrc 'src/**/*.scss' --fix",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -23,7 +24,9 @@
     "@nebular/auth": "^7.0.0",
     "@nebular/eva-icons": "^7.0.0",
     "@nebular/theme": "^7.0.0",
+    "animate.css": "^4.1.1",
     "eva-icons": "^1.1.3",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -44,6 +47,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
+    "stylelint": "^13.12.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"

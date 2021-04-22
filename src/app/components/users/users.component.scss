@@ -1,0 +1,42 @@
+.users__table {
+  max-height: 830px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.btn__get__wrapper {
+  margin-bottom: 15px;
+
+  & a {
+    text-decoration: none;
+  }
+}
+
+.btn__get {
+  width: 300px;
+  margin-right: 10px;
+}
+
+.users__table__wrapper {
+  height: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & img {
+    user-select: none;
+    margin-top: 5%;
+    max-width: 100%;
+  }
+}
+
+.users__table__component {
+  display: flex;
+  height: 700px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hm14';
-  location = ''
+  location = '';
 
-  currentLink(link: string) {
-    this.location = link
+  public currentLink(link: string): void {
+    this.location = link;
   }
 }
