@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, Event as NavigationEvent, NavigationStart } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +10,19 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'hm14';
   location = '';
+  currentRoute$: Subscription;
 
-  public currentLink(link: string): void {
-    this.location = link;
+  constructor(private router: Router) {
+    this.currentRoute$ = this.router.events
+      .subscribe(
+        (event: NavigationEvent) => {
+          if (event instanceof NavigationStart) {
+            this.location = event.url;
+          }
+        });
+  }
+
+  ngOnDestroy(): void {
+    this.currentRoute$.unsubscribe();
   }
 }

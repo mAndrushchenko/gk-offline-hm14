@@ -1,39 +1,33 @@
-<nb-layout >
-
-  <nb-layout-header fixed >
+<nb-layout>
+  <nb-layout-header fixed>
     <div class="links">
       <a
-        class="link {{location === 'home' ? 'active' : ''}}"
-        (click)="currentLink('home')"
+        class="link {{location === '/home' ? 'active' : ''}}"
         [routerLink]="['home']"
         routerLinkActive="active">Home</a>
       <a
-        class="link {{location === 'articles' ? 'active' : ''}}"
-        (click)="currentLink('articles')"
+        class="link {{location === '/articles' ? 'active' : ''}}"
         [routerLink]="['articles']">Articles</a>
       <a
-        class="link {{location === 'nasa' ? 'active' : ''}}"
-        (click)="currentLink('nasa')"
+        class="link {{location === '/nasa' ? 'active' : ''}}"
         [routerLink]="['nasa']">NASA</a>
       <a
-        class="link {{location === 'star-wars' ? 'active' : ''}}"
-        (click)="currentLink('star-wars')"
+        class="link {{location === '/star-wars' ? 'active' : ''}}"
         [routerLink]="['star-wars']">Star Wars</a>
       <a
-        class="link {{location === 'users' ? 'active' : ''}}"
-        (click)="currentLink('users')"
+        class="link {{location === '/users' ? 'active' : ''}}"
         [routerLink]="['users']">Users</a>
       <a
-        class="link {{location === 'login' ? 'active' : ''}}"
-        (click)="currentLink('login')"
-      [routerLink]="['login']">Login</a>
+        class="link {{location === '/blog' ? 'active' : ''}}"
+        [routerLink]="['blog']">Blog</a>
       <a
-        class="link {{location === 'registration' ? 'active' : ''}}"
-        (click)="currentLink('registration')"
-      [routerLink]="['registration']">Registration</a>
+        class="link {{location === '/login' ? 'active' : ''}}"
+        [routerLink]="['login']">Login</a>
+      <a
+        class="link {{location === '/registration' ? 'active' : ''}}"
+        [routerLink]="['registration']">Registration</a>
     </div>
   </nb-layout-header>
-
   <nb-layout-column>
     <router-outlet></router-outlet>
   </nb-layout-column>

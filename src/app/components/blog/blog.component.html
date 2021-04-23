@@ -1,0 +1,67 @@
+<div class="blog">
+  <div *ngIf="showEditor" class="blog__field">
+    <nb-card class="blog__wrapper animate__animated animate__zoomInDown">
+      <nb-card-body class="blog__input">
+        <div class="blog__btn__close">
+          <button
+            (click)="onCloseEditor()"
+            nbButton
+            hero
+            status="danger"
+          >
+            &#x2718;
+          </button></div>
+        <form
+          #formEl="ngForm"
+          name="blog-form"
+          [formGroup]="topicForm"
+          action=""
+          (ngSubmit)="addTopic(formEl.form.value)">
+          <label>Title</label>
+          <input
+            type="text"
+            placeholder="Title"
+            value="{{ this.topicData.title }}"
+            formControlName="title"
+            nbInput
+            fullWidth
+            fieldSize="small">
+          <label>Description</label>
+          <textarea
+            class="blog__textarea"
+            value="{{ this.topicData.description }}"
+            formControlName="description"
+            nbInput
+            fullWidth
+            placeholder="Write your description here...">
+        </textarea>
+          <div class="blog__btn__add">
+            <button
+              (submit)="addTopic(formEl.form.value)"
+              nbButton
+              status="primary"
+              [disabled]="!topicForm.valid"
+            >
+              Add topic
+            </button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div
+    class="blog__btn__field animate__animated animate__pulse animate__infinite"
+    *ngIf="!showEditor"
+  >
+    <button
+      (click)="onShowEditor()"
+      nbButton
+      status="primary"
+    >Make new topic!</button>
+  </div>
+  <app-topic
+    *ngFor="let topic of topics$ | async"
+    [topic] = "topic"
+  ></app-topic>
+</div>
+

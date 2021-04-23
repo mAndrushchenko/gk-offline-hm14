@@ -1,0 +1,43 @@
+<nb-card class="topic animate__animated animate__bounceInDown"  accent="primary">
+  <div *ngIf="!isEdit" class="topic__icons">
+    <button
+      (click)="onEdit()"
+    >
+      <nb-icon icon="edit-2-outline"></nb-icon>
+    </button>
+    <button
+      (click)="onRemove(topic.id)"
+    >
+      <nb-icon icon="trash-2-outline"></nb-icon>
+    </button>
+  </div>
+  <div *ngIf="isEdit" class="topic__icons">
+    <button
+      (click)="onSaveChanges()"
+      nbButton
+      status="primary"
+    >
+      Save changes
+    </button>
+  </div>
+  <nb-card-header class="topic__title">
+    <h3 *ngIf="!isEdit">{{topic.title}}</h3>
+    <input
+      *ngIf="isEdit"
+      type="text"
+      [(ngModel)]="inputFields.title"
+      nbInput
+      >
+  </nb-card-header>
+  <nb-card-body class="topic__description">
+    <p *ngIf="!isEdit">{{topic.description}}</p>
+    <textarea
+      *ngIf="isEdit"
+      [(ngModel)]="inputFields.description"
+      nbInput
+      fullWidth
+      placeholder="Write your description here...">
+        </textarea>
+  </nb-card-body>
+  <nb-card-footer class="topic__date">{{topic.date | date: 'medium'}}</nb-card-footer>
+</nb-card>
