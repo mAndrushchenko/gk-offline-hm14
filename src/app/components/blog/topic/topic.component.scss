@@ -17,10 +17,10 @@
       transition: ease 0.2s;
     }
 
-    & button:hover:first-child {
+    &__btn-edit:hover:first-child {
       color: #3366ff;
     }
-    & button:hover:last-child {
+    &__btn-remove:hover:last-child {
       color: #f00;
     }
   }

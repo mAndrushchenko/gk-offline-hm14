@@ -39,6 +39,8 @@ import { ApiService } from './services/api/api.service';
 import { StoreModule } from '@ngrx/store';
 import { BlogComponent } from './components/blog/blog.component';
 import { topicReducer } from './store/blog/blog.reducer';
+import { DollarPipe } from './pipes/dollar.pipe';
+import { HoldableDirective } from './directives/holdable.directive';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { topicReducer } from './store/blog/blog.reducer';
     StarWarsComponent,
     UsersTableComponent,
     BlogComponent,
-    TopicComponent
+    TopicComponent,
+    DollarPipe,
+    HoldableDirective
   ],
   imports: [
     BrowserModule,

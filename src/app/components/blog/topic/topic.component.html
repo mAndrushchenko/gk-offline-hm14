@@ -1,11 +1,13 @@
 <nb-card class="topic animate__animated animate__bounceInDown"  accent="primary">
   <div *ngIf="!isEdit" class="topic__icons">
     <button
+      class="topic__icons__btn-edit"
       (click)="onEdit()"
     >
       <nb-icon icon="edit-2-outline"></nb-icon>
     </button>
     <button
+      class="topic__icons__btn-remove"
       (click)="onRemove(topic.id)"
     >
       <nb-icon icon="trash-2-outline"></nb-icon>
@@ -13,6 +15,7 @@
   </div>
   <div *ngIf="isEdit" class="topic__icons">
     <button
+      class="topic__icons__btn-save"
       (click)="onSaveChanges()"
       nbButton
       status="primary"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, FormGroupDirective } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { select, Store } from '@ngrx/store';
 import { AppState } from '../../model/app.store';
 import { addTopic, setTopics } from '../../store/blog/blog.actions';
@@ -70,13 +70,13 @@ export class BlogComponent implements OnInit {
 
     this.topicForm = this.fb.group({
       title: [this.topicData.title, [
-        // Validators.minLength(3),
-        // Validators.required
+        Validators.minLength(3),
+        Validators.required
       ]],
       description: [this.topicData.description, [
-        // Validators.required,
-        // Validators.minLength(10),
-        // Validators.maxLength(500)
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(500)
       ]]
     });
   }
