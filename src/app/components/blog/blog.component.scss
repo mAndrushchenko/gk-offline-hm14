@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, .7);
     top: 0;
     left: 0;
     z-index: 5;
@@ -55,12 +55,13 @@
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     }
   }
+
   &__btn__close {
     visibility: hidden;
     position: absolute;
     top: 5px;
     right: 5px;
-    transition: ease 0.2s;
+    transition: ease .2s;
 
     button {
       width: 24px;
@@ -68,7 +69,7 @@
     }
   }
 
-  &__btn__add  {
+  &__btn__add {
     text-align: right;
   }
 
@@ -80,6 +81,7 @@
   }
 
   &__wrapper:hover {
+
     .blog__btn__close {
       visibility: visible;
     }

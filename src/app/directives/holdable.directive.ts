@@ -2,9 +2,15 @@ import { Directive, HostListener, EventEmitter, Output } from '@angular/core';
 import { Observable, Subject, interval } from 'rxjs';
 import { takeUntil, tap, filter } from 'rxjs/operators';
 
+/* HoldableDirective used for testing change property with directives
+* Description: when user click on the button "DELETE" in "/users" route , it trigger the  HoldableDirective.
+* On mousedown event, in console we can see message with information that "holding" has been started.
+* And on mouse up event we can see the message with information that "holding" has been ended.
+* Between "start hold" and "end hold" we can see how long event mouse on active in ms.
+*/
 
 @Directive({
-  selector: '[holdable]'
+  selector: '[appHoldable]'
 })
 export class HoldableDirective {
 
@@ -19,20 +25,19 @@ export class HoldableDirective {
       filter(v => v === 'cancel'),
       tap(v => {
         console.log('%c stopped hold', 'color: #ec6969; font-wight: bold;');
-        this.holdTime.emit(0)
+        this.holdTime.emit(0);
       })
     );
-
-
   }
 
-  @HostListener('mouseup', ['$event'])
-  @HostListener('mouseleave', ['$event'])
+  @HostListener('mouseup', [ '$event' ])
+  @HostListener('mouseleave', [ '$event' ])
+
   onExit() {
     this.state.next('cancel');
   }
 
-  @HostListener('mousedown', ['$event'])
+  @HostListener('mousedown', [ '$event' ])
   onHold() {
     console.log('%c started hold', 'color: #5fba7d; font-wight: bold;');
 
@@ -42,12 +47,9 @@ export class HoldableDirective {
     interval(n).pipe(
       takeUntil(this.cancel),
       tap(v => {
-        console.log(v * n)
+        console.log(v * n);
         this.holdTime.emit(v * n);
       })
     ).subscribe();
-
-
-  };
-
+  }
 }

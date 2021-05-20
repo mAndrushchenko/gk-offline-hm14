@@ -14,7 +14,7 @@
         <button
           [routerLink]="['/users']"
           (click)="deleteUsers()"
-          holdable
+          appHoldable
           nbButton
           status="danger"
           [disabled]="!isExist && !users.length"

@@ -7,7 +7,7 @@ export const initialState: Topic[] = [];
 
 export const topicReducer = createReducer(
   initialState,
-  on(addTopic, (state, action) => [...state, action]),
+  on(addTopic, (state, action) => [ ...state, action ]),
 
   on(removeTopic, (state, action) => {
     return state.filter(topic => topic.id !== action.id);
@@ -20,14 +20,14 @@ export const topicReducer = createReducer(
           ...topic,
           title: action.title,
           description: action.description
-        }
+        };
       } else {
-        return topic
+        return topic;
       }
-    })
+    });
   }),
 
   on(setTopics, (state, action) => {
-    return action.topics
+    return action.topics;
   })
 );

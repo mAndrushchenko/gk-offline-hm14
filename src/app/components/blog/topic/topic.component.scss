@@ -14,12 +14,13 @@
       outline: none;
       border: none;
       color: #fff;
-      transition: ease 0.2s;
+      transition: ease .2s;
     }
 
     &__btn-edit:hover:first-child {
-      color: #3366ff;
+      color: #36f;
     }
+
     &__btn-remove:hover:last-child {
       color: #f00;
     }
@@ -37,6 +38,7 @@
       width: 80%;
     }
   }
+
   &__description p, textarea {
     font-size: 18px;
     margin: 10px 0;
