@@ -1,0 +1,66 @@
+.topic {
+  position: relative;
+
+  &__icons {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 5px;
+    right: 5px;
+
+    & button {
+      cursor: pointer;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      color: #fff;
+      transition: ease .2s;
+    }
+
+    &__btn-edit:hover:first-child {
+      color: #36f;
+    }
+
+    &__btn-remove:hover:last-child {
+      color: #f00;
+    }
+  }
+
+  &__title {
+    width: 100%;
+
+    h3 {
+      font-size: 20px;
+    }
+
+    input {
+      font-size: 20px;
+      width: 80%;
+    }
+  }
+
+  &__description p, textarea {
+    font-size: 18px;
+    margin: 10px 0;
+    resize: none;
+
+    &::-webkit-scrollbar {
+      width: 16px;
+      background-color: #0f2c57;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #007bff;
+      border-radius: 3px;
+      height: 50px;
+    }
+
+    &::-webkit-scrollbar-track  &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    }
+  }
+
+  &__date {
+    text-align: right;
+  }
+}

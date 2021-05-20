@@ -9,6 +9,7 @@ import { UsersComponent } from './components/users/users.component';
 import { NasaComponent } from './components/nasa/nasa.component';
 import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { UsersTableComponent } from './components/users/users-table/users-table.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   { path: 'nasa', component: NasaComponent },
   { path: 'star-wars', component: StarWarsComponent },
+  { path: 'blog', component: BlogComponent },
   { path: 'users', component: UsersComponent, children: [{ path: 'page/:id', component: UsersTableComponent }] },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

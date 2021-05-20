@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -33,8 +33,14 @@ import { UsersComponent } from './components/users/users.component';
 import { NasaComponent } from './components/nasa/nasa.component';
 import { StarWarsComponent } from './components/star-wars/star-wars.component';
 import { UsersTableComponent } from './components/users/users-table/users-table.component';
+import { TopicComponent } from './components/blog/topic/topic.component';
 import { ApiInterceptor } from './services/api/api-interceptor';
 import { ApiService } from './services/api/api.service';
+import { StoreModule } from '@ngrx/store';
+import { BlogComponent } from './components/blog/blog.component';
+import { topicReducer } from './store/blog/blog.reducer';
+import { DollarPipe } from './pipes/dollar.pipe';
+import { HoldableDirective } from './directives/holdable.directive';
 
 @NgModule({
   declarations: [
@@ -48,7 +54,11 @@ import { ApiService } from './services/api/api.service';
     UsersComponent,
     NasaComponent,
     StarWarsComponent,
-    UsersTableComponent
+    UsersTableComponent,
+    BlogComponent,
+    TopicComponent,
+    DollarPipe,
+    HoldableDirective
   ],
   imports: [
     BrowserModule,
@@ -70,7 +80,9 @@ import { ApiService } from './services/api/api.service';
     NbSpinnerModule,
     ScrollingModule,
     NbSelectModule,
-    NbToggleModule
+    NbToggleModule,
+    StoreModule.forRoot({ topics: topicReducer }),
+    FormsModule
   ],
   providers: [
     ApiService, {
